@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/converter-quiz-gallery/static/css/main.847cf878.css",
-    "main.js": "/converter-quiz-gallery/static/js/main.2cd0f2e0.js",
+    "main.css": "/converter-quiz-gallery/static/css/main.45b956d0.css",
+    "main.js": "/converter-quiz-gallery/static/js/main.afe7eccb.js",
     "static/media/4.jpg": "/converter-quiz-gallery/static/media/4.82ba6210d542f365b859.jpg",
     "static/media/gallery-velen-2.jpg": "/converter-quiz-gallery/static/media/gallery-velen-2.82ba6210d542f365b859.jpg",
     "static/media/gallery-animals.png": "/converter-quiz-gallery/static/media/gallery-animals.fc82fbe43594fb57f0b9.png",
@@ -54,11 +54,12 @@
     "static/media/johnny.jpg": "/converter-quiz-gallery/static/media/johnny.ea9a4d642bb58586546b.jpg",
     "static/media/dandellion.jpg": "/converter-quiz-gallery/static/media/dandellion.3bc5847ddaa54f0719f7.jpg",
     "index.html": "/converter-quiz-gallery/index.html",
-    "main.847cf878.css.map": "/converter-quiz-gallery/static/css/main.847cf878.css.map",
-    "main.2cd0f2e0.js.map": "/converter-quiz-gallery/static/js/main.2cd0f2e0.js.map"
+    "static/media/funnel.svg": "/converter-quiz-gallery/static/media/funnel.8ab1d0dfc1d6a20efc70b58510d0a196.svg",
+    "main.45b956d0.css.map": "/converter-quiz-gallery/static/css/main.45b956d0.css.map",
+    "main.afe7eccb.js.map": "/converter-quiz-gallery/static/js/main.afe7eccb.js.map"
   },
   "entrypoints": [
-    "static/css/main.847cf878.css",
-    "static/js/main.2cd0f2e0.js"
+    "static/css/main.45b956d0.css",
+    "static/js/main.afe7eccb.js"
   ]
 }
