@@ -17,18 +17,18 @@ code {
     monospace;
 }
 
-li {
+/* li {
   list-style: none;
   margin-left: 5rem;
 }
 
 li:first-of-type {
   margin-left: -1rem;
-}
+} */
 
 .converter {
   /* border: 2px solid wheat; */
-  padding: 4rem 5rem;
+  /* padding: 4rem 5rem; */
 }
 
 #paper {
@@ -38,6 +38,9 @@ li:first-of-type {
 
 .conv-form {
   background-image: url('/src/assets/paper.png');
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #curr {
@@ -63,8 +66,8 @@ select option::selection {
 
 .quest-btn {
   border: 1px solid white;
-  width: 300px;
-  padding: 1rem 1rem
+  /* width: 300px;
+  padding: 1rem 1rem */
 }
 
 .quest-btn:hover {
@@ -137,7 +140,7 @@ select option::selection {
 
 .card {
   margin-top: 1.5rem;
-  margin-left: 1.5rem;
+  /* margin-left: 1.5rem; */
 }
 
 .card-img:hover {
@@ -154,7 +157,7 @@ select option::selection {
 
 .category {
   margin-top: 1.5rem;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
 }
 
 .category-img {

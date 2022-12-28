@@ -184,11 +184,20 @@ const Quiz = () => {
     setCurrentAnswer(undefined);
   }
 
+  const handleRestart = () => {
+    setQuestion(0);
+    setCurrentAnswer(undefined);
+    setCorrectAnswers(0);
+    setCompleted(false);
+    setTime(10);
+  }
+
   return (
-    <div className={`${!isStartPage && !isCompleted ? `questions-bg-${question+1}` : ''} mt-16 w-full flex flex-col flex-wrap justify-center items-center`}>
-      <div className=' flex flex-col flex-wrap justify-center items-center w-[50%]  bg-black bg-opacity-75'>
-        <h1 className='mt-14 text-xl'>{`${isStartPage ? 'Welcome to' : ''} "The Witcher" universe quiz ${!isStartPage && !isCompleted ? `(${question+1}/${questionsList.length-1})` : ''}`}</h1>
-        <span className={`mt-2 ${isStartPage ? 'italic text-sm' : isCompleted ? 'text-lg' : 'hidden'}`}>{`${isStartPage ? "Let's see how well you know this fantasy world" : 'Your results:'}`}</span>
+    <div className={`${!isStartPage && !isCompleted ? `questions-bg-${question+1}` : ''} 
+        ${isCompleted ? '' : 'md:mt-10'} mt-auto mb-[40%] w-full md:h-fit  flex flex-col flex-wrap justify-center items-center`}>
+      <div className=' flex flex-col flex-wrap justify-center items-center md:w-[65%] w-full  bg-black bg-opacity-75'>
+        <h1 className='md:mt-14 mt-8 md:px-auto px-8 md:text-xl text-base text-center '>{`${isStartPage ? 'Welcome to' : ''} "The Witcher" universe quiz ${!isStartPage && !isCompleted ? `(${question+1}/${questionsList.length-1})` : ''}`}</h1>
+        <span className={`mt-2 md:px-auto px-8 text-center ${isStartPage ? 'italic text-md' : isCompleted ? 'md:text-lg text-base' : 'hidden'}`}>{`${isStartPage ? "Let's see how well you know this fantasy world" : 'Your results:'}`}</span>
 
         <div className={`${isStartPage ? 'flex flex-col flex-wrap justify-center items-center' : 'hidden'}`}>
           <img src={logo} alt="wolf-logo" className='logo mt-12'/>
@@ -202,14 +211,14 @@ const Quiz = () => {
           <Questions question={question} questionsList={questionsList} handleAnswer={handleAnswer} currentAnswer={currentAnswer}/>
           <button 
             onClick={handleNextQuestion} 
-            className='mt-[44px] py-2 px-5 border-2 text-lg border-white hover:bg-white hover:text-black'>
+            className='md:mt-[44px] mt-[30px] py-2 px-5 border-2 text-lg border-white hover:bg-white hover:text-black'>
               {question < 9 ? `${nextBtnContent}` : 'Get Results'}
           </button>
           <ProgressBar question={question} questionsList={questionsList}/>
         </div>
         
         <div className={`${isCompleted ? '' : 'hidden'}`}>
-          <Results correctAnswers={correctAnswers}/>
+          <Results correctAnswers={correctAnswers} handleRestart={handleRestart}/>
         </div>
       </div>
     </div>

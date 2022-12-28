@@ -11,11 +11,11 @@ import Characters from '../../assets/cards/category-chars.jpg';
 import Items from '../../assets/cards/category-items.png';
 import Landscapes from '../../assets/cards/category-landscapes.jpg';
 
+
 import {animals, bear, ciri, crossbow, dandelion, eredin, gaunter, geralt, gryphon, iris, jen, kaer, lambert, lesh, novigrad, novigrad2, olgierd, skellige, skellige2, succubus, sword, swords, toussaint, triss, troll, velen, velen2, vizima, wolf } from '../../assets/cards/export-media';
 
 
 const Gallery = () => {
-
   const filtersData = [
     {
       name: 'Characters',
@@ -251,6 +251,7 @@ const Gallery = () => {
   const [selector, setSelector] = useState('categories');
   const [page, setPage] = useState(0);
   const [category, setCategory] = useState('');
+  const [openFilters, setOpenFilters] = useState(window.screen.width > 860 ? true : false);
 
   const handleChangeSelector = (e) => {
     setSelector(e.currentTarget.value);
@@ -349,11 +350,15 @@ const Gallery = () => {
     setSearch(e.currentTarget.value)
   } 
 
+  const handleOpenFilters = () => {
+    setOpenFilters(!openFilters);
+  }
+
   return (
-    <div className='mt-16 w-full flex flex-col flex-wrap justify-center items-center'>
-      <h1 className='text-xl'>The Witcher Photo Gallery</h1>
-      <div className='mt-8 w-full flex flex-row justify-center items-start text-white'>
-        <div className={`${selector === 'all' ? '' : 'hidden'}`}>
+    <div className='md:mt-16 mt-8 w-[90%] flex flex-col flex-wrap justify-center items-center'>
+      <h1 className='text-xl text-center'>The Witcher Photo Gallery</h1>
+      <div className='md:mt-8 mt-2 w-full flex flex-row justify-center items-start text-white'>
+        <div className={`w-[180px] mt-7 mr-8 ${selector === 'all' && window.screen.width > 860 ? 'md:block hidden' : 'hidden'}`}>
           <Filter 
             filtersData={filtersData}
             activeFilters={activeFilters}
@@ -362,16 +367,34 @@ const Gallery = () => {
             multipleFilters={multipleFilters}
             handleMultipleFilters={handleMultipleFilters}
             deleteMultipleFilters={deleteMultipleFilters}
+            
+            openFilters={openFilters}
+            handleOpenFilters={handleOpenFilters}
             />
         </div>
         <div className='mt-6 w-[1032px] flex flex-col flex-wrap justify-center items-end'>
-          <div className={`w-full flex flex-row 
+          <div className={`w-full flex ${window.screen.width > 860 ? 'flex-row' : 'flex-col-reverse'}
             ${pagesAmount < 2 && (selector === 'all' || category ) ? 'justify-end' : 
               selector === 'all' || category ? 'justify-between' : 
               'justify-center'} 
               items-center`}>
 
-            <div className={`${(selector === 'all' || category) && pagesAmount > 1 ? '' : 'hidden'}`}>
+            <div className={`mt-4 ${selector === 'all' && window.screen.width < 860 ? 'block' : 'hidden'}`}>
+              <Filter 
+                filtersData={filtersData}
+                activeFilters={activeFilters}
+                handleFilterSelect={handleFilterSelect}
+
+                multipleFilters={multipleFilters}
+                handleMultipleFilters={handleMultipleFilters}
+                deleteMultipleFilters={deleteMultipleFilters}
+                
+                openFilters={openFilters}
+                handleOpenFilters={handleOpenFilters}
+                />
+            </div>
+
+            <div className={`${window.screen.width > 860 ? 'mt-0' : 'mt-3'} ${(selector === 'all' || category) && pagesAmount > 1 ? '' : 'hidden'}`}>
               <PageSwitcher 
                 page={page}
                 handleSetPage={handleSetPage} 
@@ -380,8 +403,8 @@ const Gallery = () => {
                 handleNextPage={handleNextPage}/>
             </div>
 
-            <div className={`flex flex-row ${selector === 'all' && pagesAmount < 2 ? 'mr-[25%]' :
-              category && pagesAmount > 1 ? 'ml-[8%]' : category && pagesAmount < 2 ? 'mr-[18.5%]' : ''}`}>
+            <div className={`${window.screen.width > 860 ? 'mt-0' : 'mt-4'} flex flex-row ${selector === 'all' && pagesAmount < 2 ? 'md:mr-[25%]' :
+              category && pagesAmount > 1 ? 'sm:ml-[8%]' : category && pagesAmount < 2 ? 'mr-[18.5%]' : ''}`}>
               <button 
                 onClick={handleChangeSelector} 
                 value="categories" 

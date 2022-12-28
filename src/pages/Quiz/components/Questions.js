@@ -8,13 +8,13 @@ const Questions = ({question, questionsList, handleAnswer, currentAnswer}) => {
             key={index} 
             name={index} 
             onClick={handleAnswer} 
-            className={`quest-btn ${+currentAnswer === index ? 'bg-white text-black hover:bg-white' : ''}`}>{btn}</button>
+            className={`quest-btn sm:text-base text-sm sm:py-4 py-3 sm:px-4 px-2 sm:w-[300px] w-[250px] ${+currentAnswer === index ? 'bg-white text-black hover:bg-white' : ''}`}>{btn}</button>
     )
 
     return (
-    <div className='mt-12 flex flex-col flex-wrap justify-center items-center'>
-        <h1 className='text-lg'>{question+1}. {current.question}</h1>
-        <div className='w-[80%] mt-8 flex flex-row flex-wrap justify-center items-center'>
+    <div className='md:mt-12 mt-4 flex flex-col flex-wrap justify-center items-center'>
+        <h1 className='md:text-lg text-sm text-center sm:px-auto px-8'>{question+1}. {current.question}</h1>
+        <div className='w-[70%] sm:mt-8 mt-4 flex flex-row flex-wrap justify-center items-center'>
             {options}
         </div>
     </div>

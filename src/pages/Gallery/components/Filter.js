@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-const Filter = ({filtersData, activeFilters, handleFilterSelect, multipleFilters, handleMultipleFilters, deleteMultipleFilters}) => {
+import filterIcon from '../../../assets/funnel.svg';
+
+const Filter = ({filtersData, activeFilters, handleFilterSelect, multipleFilters, handleMultipleFilters, deleteMultipleFilters, openFilters, handleOpenFilters}) => {
 
     const filters = filtersData.map(f => (
         <div key={Math.random().toString(36).substring(2,10)} className='mt-2 flex flex-col justify-start items-start'>
@@ -32,9 +34,13 @@ const Filter = ({filtersData, activeFilters, handleFilterSelect, multipleFilters
     ))
 
     return (
-    <div className='mt-7 mr-16'>
-        <legend className='text-lg'>Filter cards:</legend>
-        {filters}
+    <div className=''>
+        
+        <button onClick={handleOpenFilters} className='text-lg flex flex-row justify-center items-center cursor-auto'>
+            <img src={filterIcon} alt="funnel"/> 
+            <p>&nbsp;Filter cards:</p>
+        </button>
+        {openFilters ? filters : <></>}
     </div>
     )
     }

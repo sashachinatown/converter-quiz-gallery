@@ -6,7 +6,7 @@ const ProgressBar = ({question, questionsList}) => {
         <div key={index} className={`${index < question + 1 ? 'curr-progress' : ''} h-[10px] w-[10%] bg-gray-300`}></div>
     )
     return (
-        <div className='mt-[54px] w-full flex flex-row justify-center items-center'>
+        <div className='sm:mt-[54px] mt-[36px] w-full flex flex-row justify-center items-center'>
           {bars}
         </div>
     )

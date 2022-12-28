@@ -14,7 +14,7 @@ const PageSwitcher = ({page, handleSetPage, pagesAmount, handleNextPage, handleP
         </button>
     ))
     return (
-    <div className='ml-6 flex flex-row justify-center items-center'>
+    <div className={`${window.screen.width > 860 ? 'ml-6' : 'ml-0'} flex flex-row justify-center items-center`}>
                 <button onClick={handlePrevPage} className='arrow-left ml-4 mr-2 '>{`◁`}</button>
                 {switchers}
                 <button onClick={handleNextPage} className='ml-4 '>{`▷`}</button>

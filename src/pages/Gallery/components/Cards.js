@@ -36,9 +36,9 @@ const Cards = ({selector, handleSelectCategory, category, page, handlePrevPage, 
     
     const cards = correctPages?.map((item, index) => {
             return (
-                <div key={item.id} className='card w-[320px] h-[180px]'>
+                <div key={item.id} className='card sm:ml-6 ml-0 sm:w-[320px] sm:h-[180px]'>
                     <a href={item.src} target="_blank" rel="noreferrer">
-                        <img src={item.src} alt={item.name} className="card-img w-[320px] h-[180px]"/>
+                        <img src={item.src} alt={item.name} className="card-img sm:w-[320px] sm:h-[180px]"/>
                     </a>
                 </div>
             )
@@ -48,14 +48,14 @@ const Cards = ({selector, handleSelectCategory, category, page, handlePrevPage, 
         <div 
             onClick={handleSelectCategory}
             key={Math.random().toString(36).substring(2,10)} 
-            className='flex flex-row justify-center items-center category w-[240px] h-[360px] cursor-pointer'>
-            <span className='absolute text-2xl z-10'>{category.name}</span>
+            className='category sm:ml-4  ml-0 flex flex-row justify-center items-center sm:w-[240px] sm:h-[360px] w-[200px] h-[300px] cursor-pointer'>
+            <span className='absolute sm:text-2xl text-lg z-10'>{category.name}</span>
             <img src={category.src} alt={category.name} className='category-img'/>
         </div>
     ));
 
     return (
-        <div className='w-full flex flex-row flex-wrap justify-start'>
+        <div className={`md:w-full w-[100vw] sm:px-0 px-[25%] flex flex-row flex-wrap ${window.screen.width > 860 ? 'justify-start' : 'justify-center'}`}>
             {selector === 'all' || category ? cards : categories}
         </div>
     )
