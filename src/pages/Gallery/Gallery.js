@@ -404,7 +404,7 @@ const Gallery = () => {
             </div>
 
             <div className={`${window.screen.width > 860 ? 'mt-0' : 'mt-4'} flex flex-row ${selector === 'all' && pagesAmount < 2 ? 'md:mr-[25%]' :
-              category && pagesAmount > 1 ? 'sm:ml-[8%]' : category && pagesAmount < 2 ? 'mr-[18.5%]' : ''}`}>
+              category && pagesAmount > 1 && window.screen.width > 860 ? 'sm:ml-[8%]' : category && pagesAmount < 2 ? 'mr-[18.5%]' : ''}`}>
               <button 
                 onClick={handleChangeSelector} 
                 value="categories" 

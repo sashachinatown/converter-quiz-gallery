@@ -48,14 +48,14 @@ const Cards = ({selector, handleSelectCategory, category, page, handlePrevPage, 
         <div 
             onClick={handleSelectCategory}
             key={Math.random().toString(36).substring(2,10)} 
-            className='category sm:ml-4  ml-0 flex flex-row justify-center items-center sm:w-[240px] sm:h-[360px] w-[200px] h-[300px] cursor-pointer'>
+            className='category  flex flex-row justify-center items-center sm:w-[240px] sm:h-[360px] w-[200px] h-[300px] cursor-pointer'>
             <span className='absolute sm:text-2xl text-lg z-10'>{category.name}</span>
             <img src={category.src} alt={category.name} className='category-img'/>
         </div>
     ));
 
     return (
-        <div className={`md:w-full w-[100vw] sm:px-0 px-[25%] flex flex-row flex-wrap ${window.screen.width > 860 ? 'justify-start' : 'justify-center'}`}>
+        <div className={`cards-container md:w-full w-[100vw]  flex flex-row flex-wrap ${window.screen.width > 860 ? 'justify-start' : 'justify-center'}`}>
             {selector === 'all' || category ? cards : categories}
         </div>
     )
