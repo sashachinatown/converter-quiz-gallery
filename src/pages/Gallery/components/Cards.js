@@ -36,9 +36,9 @@ const Cards = ({selector, handleSelectCategory, category, page, handlePrevPage, 
     
     const cards = correctPages?.map((item, index) => {
             return (
-                <div key={item.id} className='card sm:ml-6 ml-0 sm:w-[320px] sm:h-[180px]'>
+                <div key={item.id} className='card md:w-[320px] md:h-[180px]'>
                     <a href={item.src} target="_blank" rel="noreferrer">
-                        <img src={item.src} alt={item.name} className="card-img sm:w-[320px] sm:h-[180px]"/>
+                        <img src={item.src} alt={item.name} className="card-img md:w-[320px] md:h-[180px]"/>
                     </a>
                 </div>
             )
@@ -55,7 +55,7 @@ const Cards = ({selector, handleSelectCategory, category, page, handlePrevPage, 
     ));
 
     return (
-        <div className={`cards-container md:w-full w-[100vw]  flex flex-row flex-wrap ${window.screen.width > 860 ? 'justify-start' : 'justify-center'}`}>
+        <div className={`cards-container md:w-full w-[100vw]  flex flex-row flex-wrap `}>
             {selector === 'all' || category ? cards : categories}
         </div>
     )

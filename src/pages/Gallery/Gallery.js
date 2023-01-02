@@ -358,7 +358,7 @@ const Gallery = () => {
     <div className='md:mt-16 mt-8 w-[90%] flex flex-col flex-wrap justify-center items-center'>
       <h1 className='text-xl text-center'>The Witcher Photo Gallery</h1>
       <div className='md:mt-8 mt-2 w-full flex flex-row justify-center items-start text-white'>
-        <div className={`w-[180px] mt-7 mr-8 ${selector === 'all' && window.screen.width > 860 ? 'md:block hidden' : 'hidden'}`}>
+        <div className={`filter-desk-container w-[180px] mt-7 mr-8 ${selector === 'all' ? 'block' : 'hidden'}`}>
           <Filter 
             filtersData={filtersData}
             activeFilters={activeFilters}
@@ -373,13 +373,13 @@ const Gallery = () => {
             />
         </div>
         <div className='mt-6 w-[1032px] flex flex-col flex-wrap justify-center items-end'>
-          <div className={`w-full flex ${window.screen.width > 860 ? 'flex-row' : 'flex-col-reverse'}
+          <div className={`nav-panel w-full flex 
             ${pagesAmount < 2 && (selector === 'all' || category ) ? 'justify-end' : 
               selector === 'all' || category ? 'justify-between' : 
               'justify-center'} 
               items-center`}>
 
-            <div className={`mt-4 ${selector === 'all' && window.screen.width < 860 ? 'block' : 'hidden'}`}>
+            <div className={`filter-mob-container mt-4 ${selector === 'all' ? 'block' : 'hidden'}`}>
               <Filter 
                 filtersData={filtersData}
                 activeFilters={activeFilters}
@@ -394,7 +394,7 @@ const Gallery = () => {
                 />
             </div>
 
-            <div className={`${window.screen.width > 860 ? 'mt-0' : 'mt-3'} ${(selector === 'all' || category) && pagesAmount > 1 ? '' : 'hidden'}`}>
+            <div className={`page-switcher-container  ${(selector === 'all' || category) && pagesAmount > 1 ? '' : 'hidden'}`}>
               <PageSwitcher 
                 page={page}
                 handleSetPage={handleSetPage} 
@@ -403,8 +403,8 @@ const Gallery = () => {
                 handleNextPage={handleNextPage}/>
             </div>
 
-            <div className={`${window.screen.width > 860 ? 'mt-0' : 'mt-4'} flex flex-row ${selector === 'all' && pagesAmount < 2 ? 'md:mr-[25%]' :
-              category && pagesAmount > 1 && window.screen.width > 860 ? 'sm:ml-[8%]' : category && pagesAmount < 2 ? 'mr-[18.5%]' : ''}`}>
+            <div className={`categories-all-switcher flex flex-row ${ pagesAmount < 2 ? 'switcher-adaptive-19' :
+              category && pagesAmount > 1 ? 'switcher-adaptive-8' : ''}`}>
               <button 
                 onClick={handleChangeSelector} 
                 value="categories" 
