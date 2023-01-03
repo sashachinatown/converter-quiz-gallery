@@ -13,7 +13,7 @@ const Questions = ({question, questionsList, handleAnswer, currentAnswer}) => {
 
     return (
     <div className='md:mt-12 mt-4 flex flex-col flex-wrap justify-center items-center'>
-        <h1 className='md:text-lg text-sm text-center sm:px-auto px-8'>{question+1}. {current.question}</h1>
+        <h1 className='md:text-lg text-sm h-8 text-center sm:px-auto px-8'>{question+1}. {current.question}</h1>
         <div className='w-[70%] sm:mt-8 mt-4 flex flex-row flex-wrap justify-center items-center'>
             {options}
         </div>
