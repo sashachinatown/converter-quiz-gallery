@@ -54,9 +54,11 @@ const Cards = ({selector, handleSelectCategory, category, page, handlePrevPage, 
         </div>
     ));
 
+    const notFound = <div className='w-full flex flex-row justify-center'><h1 className='mt-36 text-lg text-neutral-400'>Nothing was found</h1></div> 
+
     return (
-        <div className={`cards-container md:w-full w-[100vw]  flex flex-row flex-wrap `}>
-            {selector === 'all' || category ? cards : categories}
+        <div className={`cards-container md:w-full w-[100vw] flex flex-row flex-wrap `}>
+            {(selector === 'all' || category) && cards ? cards : !cards ? notFound : categories}
         </div>
     )
 }
